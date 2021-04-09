@@ -3,12 +3,10 @@ var buttonGrabber = setInterval(function () {
     .parentElement;
   var refreshButton = refreshButton1;
   if (refreshButton !== null) {
-    console.log('refresh button exists');
     clearInterval(buttonGrabber);
     var observer = new MutationObserver(function (nodes, observer) {
       observer.disconnect();
       refreshButton.setAttribute('style', '');
-      moveButtonToFront(refreshButton);
       observer.observe(refreshButton, { attributes: true });
     }).observe(refreshButton, { attributes: true });
   }
